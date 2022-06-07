@@ -69,7 +69,7 @@ def update_chart(city):
     scatter = cluster_neighbors(params)
     density = cluster_waterStress(params)
 
-    return scatter,density
+    return scatter, density
 
 
 if __name__ == '__main__':
