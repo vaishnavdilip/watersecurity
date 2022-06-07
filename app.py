@@ -43,6 +43,7 @@ app.layout = dbc.Container(
         html.Div(children=[html.H1(children='Water Security')],
                  style={'textAlign':'center','color':'black'}),
         html.Hr(),
+        html.P('The Urban Environment Social Inclusion Index (UESI) Data which is a research effort to provide the data that urban residents, city managers, and policymakers need to understand their cities’ performance on critical urban environmental issues.The UESI data might help us identify how cities are similar to each other in urban terms, including water stress. Therefore, we use unsupervised learning techniques to analyse how cities tend to form groups and how the water stress behaves in those groups. We thus have two visualizations. The first one allows to chose a city and shows the closest cities in the city cluster according tho the principal components. The second shows the distribution of water stress in the city cluster and highlights the city’s water stress as well as some reference points to asses its current situation.'),
         dbc.Row(
             [
                 dbc.Col(input_groups, md=2),

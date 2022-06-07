@@ -114,17 +114,23 @@ def cluster_waterStress(params):
     city_df = df_water[df_water.cluster == df_water.loc[params['city']]['cluster']]
     city_df = city_df.reset_index()
     
-    #plotting the plotly density graph
     fig = ff.create_distplot([city_df['WATSTRESS'].to_numpy()], group_labels=[params['city']], bin_size=0.125)
-    fig.add_vline(x=0.2, line_width=3, line_dash="dash", line_color="green", 
+    fig.add_vline(x=0.2, line_width=3, line_dash="dash", line_color="yellow", 
                     annotation_text="Medium Stress",
-                    annotation_font_size=30)
-    fig.add_vline(x=0.4, line_width=3, line_dash="dash", line_color="green", 
+                    annotation_position="top right",
+                    annotation_font_size=10)
+    fig.add_vline(x=0.4, line_width=3, line_dash="dash", line_color="red", 
                     annotation_text="High Stress",
-                    annotation_font_size=30)
-    fig.update_layout(height=800, title='Density plot of Water Stress for city')
+                    annotation_font_size=10)
+    fig.add_vline(x=float(city_df[city_df['city']==params['city']]['WATSTRESS'].values), line_width=3, 
+                    line_dash="dash", line_color="black", 
+                    annotation_text=params['city'],
+                    annotation_font_size=10)
+    
+    fig.update_layout(height=800, title='Density distribution water stress cluster ' + params['city'])
     fig.update_xaxes(title_text='Water Stress')
     fig.update_yaxes(title_text='Density')
+    
     return fig
 
 #List of cities for app
